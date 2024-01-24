@@ -15,17 +15,17 @@ const Partners = () => {
             <Card
               name={`Aiwa Education`}
               url={`www.aiwa.edu.np/`}
-              logo={"/image/aiwa.png"}
+              logo={"/Image/aiwa.png"}
             />
             <Card
               name={`Neat Dental Care`}
               url={`www.neatdentalcare.com.np/`}
-              logo={"/image/neatdental.png"}
+              logo={"/Image/neatdental.png"}
             />
             <Card
               name={`Sunaulo Baglung`}
               url={``}
-              logo={"/image/sunaulo.png"}
+              logo={"/Image/sunaulo.png"}
             />
           </div>
         </div>

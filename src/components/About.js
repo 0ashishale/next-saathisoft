@@ -36,7 +36,7 @@ const About = () => {
             <Image
               height={350}
               width={350}
-              src="/image/about.png"
+              src="/Image/about.png"
               alt="About us"
               className="h-auto w-auto"
               

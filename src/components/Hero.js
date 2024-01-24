@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <section
       className="heroSection min-h-[80svh] md:w-[70%] w-[90%] mx-auto flex flex-col items-center p-4 md:p-8 lg:p-16 relative
-    bg-[url('/image/hero.png')] bg-contain bg-no-repeat bg-center
+    bg-[url('/Image/hero.png')] bg-contain bg-no-repeat bg-center
      
     "
     >
