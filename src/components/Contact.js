@@ -1,3 +1,4 @@
+"use client";
 import { MdOutlineLocalPhone } from "react-icons/md";
 import { IoMailOutline } from "react-icons/io5";
 import { FaFacebookF } from "react-icons/fa";
@@ -5,12 +6,83 @@ import { FaInstagram } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa6";
 import ContactForm from "./ContactForm";
 
+import { gsap } from "gsap/gsap-core";
+import { useEffect, useRef } from "react";
+
 const Contact = () => {
+  const feelRef = useRef(null);
+  // useEffect(() => {
+  //   const feel = feelRef.current;
+
+  //   const handleIntersection = (entries) => {
+  //     entries.forEach((entry) => {
+  //       if (entry.isInterescting) {
+  //         gsap.fromTo(
+  //           feel,
+  //           { scale: 0.3, left: -100, opacity: 0 },
+  //           { scale: 1, left: 0, opacity: 1, duration: 2.5, ease: "power2.inOut" }
+  //         );
+
+  //         //unsubscribe from further intersection
+  //           observer.unobserve(feel)
+  //       }
+  //     })
+  //   }
+
+  //   const observer = new IntersectionObserver(handleIntersection,
+  //     {
+  //     threshold : 1
+  //     })
+
+  //   observer.observe(feel)
+  //   return () => {
+  //     observer.disconnect()
+  //   }
+
+  // }, [])
+
+  useEffect(() => {
+    const feel = feelRef.current;
+
+    const handleIntersection = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Start GSAP animation when the component is visible
+          gsap.fromTo(
+            feel,
+            { scale: 0.3, left: -100, opacity: 0 },
+            {
+              scale: 1,
+              left: 0,
+              opacity: 1,
+              duration: 2.2,
+              ease: "power2.inOut",
+            }
+          );
+
+          // Unsubscribe from further intersection observations for the current element
+          observer.unobserve(feel);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleIntersection, {
+      threshold: 1, // Adjust the threshold as needed
+    });
+
+    // Start observing the components
+    observer.observe(feel);
+
+    // Stop observing elements when the component is unmounted
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <>
       <section className="FadeIn md:w-[70%] w-[90%] mx-auto py-5 my-3">
         <div>
-  
           <div
             className="flex flex-col 
             md:bg-[url('/Image/contact.png')] 
@@ -20,7 +92,10 @@ const Contact = () => {
           >
             <div className="lg:mr-5 h-full">
               <h1 className="text-2xl font-semibold mb-4">Contact Us</h1>
-              <p className="text-6xl font-bold bg-gradient-to-r from-[--font-color] to-[--font-color-end] bg-clip-text text-transparent">
+              <p
+                ref={feelRef}
+                className="relative overflow-hidden text-6xl font-bold bg-gradient-to-r from-[--font-color] to-[--font-color-end] bg-clip-text text-transparent"
+              >
                 Feel free <br /> to contact
               </p>
               <div className="mt-10 flex flex-col gap-2">
@@ -86,80 +161,6 @@ const Contact = () => {
             </div>
 
             <div className="flex flex-col w-[20rem] rounded-3xl">
-              <h2 className="text-2xl font-bold mb-4 text-center items-center">
-                Get in Touch
-              </h2>
-              {/* <div className="text-white w-full">
-              <form className="w-full " onSubmit={handleSubmit}>
-                <div className="mb-4">
-                  <label htmlFor="name" className="block text-sm font-medium ">
-                    Name:
-                  </label>
-                  <input
-                    required
-                    onChange={(e) => setName(e.target.value)}
-                    placeholder="Full name"
-                    type="text"
-                    id="name"
-                    name="name"
-                    className="mt-1 p-2 w-full border border-gray-300 rounded-md bg-transparent outline-none text-sm"
-                  />
-                </div>
-
-                <div className="mb-4">
-                  <label htmlFor="email" className="block text-sm font-medium ">
-                    Email:
-                  </label>
-                  <input
-                    required
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="example@example.com"
-                    type="email"
-                    id="email"
-                    name="email"
-                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                    className=" invalid:text-red-500 mt-1 p-2 w-full border border-gray-300 rounded-md bg-transparent outline-none text-sm"
-                  />
-                </div>
-
-                <div className="mb-4">
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-medium "
-                  >
-                    Message:
-                  </label>
-                  <textarea
-                    required
-                    onChange={(e) => setMessage(e.target.value)}
-                    placeholder="Your words..."
-                    id="message"
-                    name="message"
-                    rows={4}
-                    className="mt-1 p-2 w-full border border-gray-300 rounded-md bg-transparent outline-none text-sm"
-                  ></textarea>
-                </div>
-
-                <button
-                  type="submit"
-                  className=" text-white p-2 rounded bg-black/80 hover:bg-orange-600 text-center w-full transition-all duration-300 text-sm tracking-wider"
-                  disabled={processing}
-                >
-                  {processing ? (
-                    <>
-                      <div className="flex justify-center gap-3">
-                        <div class="h-5 w-5 border-t-transparent border-solid animate-spin rounded-full border-white border-2"></div>
-                        Processing...
-                      </div>
-                    </>
-                  ) : (
-                    <>Submit</>
-                  )}
-                </button>
-    
-              </form>
-
-            </div> */}
               <ContactForm />
             </div>
           </div>

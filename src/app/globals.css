@@ -57,7 +57,7 @@ body {
 
 html {
   scroll-behavior: smooth;
-  filter: contrast(150%);
+  filter: contrast(120%);
 }
 
 body {
@@ -75,6 +75,20 @@ body {
 
 .gradient {
   @apply bg-gradient-to-r text-center from-[--font-color] via-green-600 to-[--font-color-end] text-transparent bg-clip-text
+}
+
+.paragraph {
+  animation : 1s ease-in-out pAnimation;
+  animation-timeline: view();
+  animation-range-start: 0;
+  animation-range-end: 300px;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes pAnimation {
+  from {opacity: 0;}
+  to {opacity: 1;}
 }
 
 
@@ -164,6 +178,17 @@ body {
 /* end hero section */
 
 
+/* about section */
+/* .aboutImage{
+  animation: 1s ease-in-out zoom;
+  animation-timeline: view();
+}
+@keyframes zoom {
+  to
+  from {
+    scale: 1;
+  }
+} */
 
 
 

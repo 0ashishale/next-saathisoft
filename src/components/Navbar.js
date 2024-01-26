@@ -1,11 +1,29 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 import Link from 'next/link';
 import Image from 'next/image';
 
+import gsap from 'gsap';
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const navRef = useRef(null)
+
+  useEffect(() => {
+   const tl = gsap.fromTo(
+      navRef.current,
+      {opacity : 0, top: "-100px"},
+      { opacity: 1, top:0, duration: 1, ease: "expo.out" }
+    );
+
+    //cleanUp function
+    return () => {
+      //kill the animation when component is unmounted
+      tl.kill();
+    }
+  },[])
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -13,10 +31,14 @@ const Navbar = () => {
 
   const [scrollHeight, setScrollHeight] = useState(0);
 
-
+const [height, setHeight] = useState(200)
   useEffect(() => {
     const handleScroll = () => {
-          setScrollHeight(window.scrollY)
+      const scroll = window.scrollY
+          setScrollHeight(scroll)
+          if (scroll > 200) {
+            setHeight(150)
+          } 
     }
     
     window.addEventListener('scroll', handleScroll)
@@ -28,25 +50,29 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`${
+      ref={navRef}
+      className={`
+      relative
+      
+      ${
         scrollHeight > 200
           ? "bg-black transition-all duration-1000"
-          : "transition-color duration-700"
+          : "transition-color duration-700 "
       }`}
     >
       <div className="md:w-[80%] w-[90%] mx-auto">
         <div className="flex items-center justify-between">
-        
-            <Link href="/">
-              <Image
-                width={250}
-                height={200}
-                src="/Image/logo.png"
+          <Link href="/">
+            <Image
+              
+              width={180}
+              height={100}
+              src="/Image/logo.png"
               alt="Saathisoft Logo"
-              className='h-auto w-auto'
-              />
-            </Link>
-          
+              className="h-auto w-auto]"
+            />
+          </Link>
+
           <div className="md:hidden">
             <button
               type="button"
@@ -71,29 +97,34 @@ const Navbar = () => {
             </button>
           </div>
           <div className={`hidden md:block ${isOpen ? "block" : "hidden"}`}>
-            <div className="flex flex-row items-baseline space-x-4 text-sm tracking-wide text-gray-200">
+            <div className="relative flex flex-row items-baseline space-x-4 text-sm tracking-wide text-gray-200">
               <Link
                 href="/"
-                className="  hover:text-[--font-color] transition-all duration-200 hover:animate-pulse "
+                className="  hover:text-[--font-color-end] transition-all duration-200 hover:px-3 hover:py-1
+                    hover:bg-gray-600/80 rounded  "
               >
                 Home
               </Link>
 
               <Link
                 href="/services"
-                className="  hover:text-[--font-color] transition-all duration-200"
+                className="  hover:text-[--font-color-end] 
+                transition-all hover:bg-gray-600/80 rounded duration-200 hover:px-3 hover:py-1
+                "
               >
                 Services
               </Link>
               <Link
                 href="/about"
-                className="  hover:text-[--font-color] transition-all duration-300"
+                className="  hover:text-[--font-color-end]
+                transition-all hover:bg-gray-600/80 rounded duration-200 hover:px-3 hover:py-1"
               >
                 About
               </Link>
               <Link
                 href="/contact"
-                className=" hover:text-[--font-color] transition-all duration-200"
+                className=" hover:text-[--font-color-end] 
+                transition-all hover:bg-gray-600/80 rounded duration-200 hover:px-3 hover:py-1"
               >
                 Contact
               </Link>
@@ -108,22 +139,13 @@ const Navbar = () => {
             <Link href="/" className="  hover:text-[--font-color]">
               Home
             </Link>
-            <Link
-              href="/services"
-              className="  hover:text-[--font-color]"
-            >
+            <Link href="/services" className="  hover:text-[--font-color]">
               Services
             </Link>
-            <Link
-              href="/about"
-              className="  hover:text-[--font-color]  "
-            >
+            <Link href="/about" className="  hover:text-[--font-color]  ">
               About
             </Link>
-            <Link
-              href="/contact"
-              className="  hover:text-[--font-color] "
-            >
+            <Link href="/contact" className="  hover:text-[--font-color] ">
               Contact
             </Link>
           </div>

@@ -22,6 +22,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
+
 export const metadata = {
   title: {
     default: "SAATHisoft",
@@ -64,6 +65,8 @@ export default function RootLayout({ children }) {
           <Footer />
         </footer>
       </body>
+
+ 
     </html>
   );
 }

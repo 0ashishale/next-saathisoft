@@ -1,23 +1,122 @@
+"use client";
 import { GiArmorUpgrade } from "react-icons/gi";
 import { PiStrategyBold } from "react-icons/pi";
 import { FaDownLeftAndUpRightToCenter } from "react-icons/fa6";
 import { VscWorkspaceTrusted } from "react-icons/vsc";
 import Image from "next/image";
 
+import { gsap } from "gsap/gsap-core";
+import { useEffect, useRef } from "react";
+// import { SplitText } from "gsap/SplitText";
+// import { SplitText } from "gsap/SplitText";
+
+
 const About = () => {
+  const imageRef = useRef(null);
+  const h1Ref = useRef(null);
+  const headRef = useRef(null);
+  const pRef = useRef(null);
+
+  useEffect(() => {
+    //    const image1 = document.querySelector(".aboutImage");
+
+    //    gsap.fromTo(
+    //      image1,
+    //      {
+    //        opacity: 0,
+    //        scale: 0,
+    //      },
+    //      {
+    //        opacity: 1,
+    //        scale: 1,
+    //        duration: 1,
+    //        ease: "power3.out",
+    //      }
+    // );
+
+    const image = imageRef.current;
+    const head = h1Ref.current;
+    const heading = headRef.current;
+    heading.style.overflow = "hidden"
+    const paragraph = pRef.current;
+
+
+
+  
+    const handleIntersection = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Start GSAP animation when the component is visible
+          gsap.fromTo(
+            image,
+            {
+              opacity: 0,
+              y: 100,
+            },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 2,
+              ease: "power3.out",
+            }
+          );
+
+          gsap.fromTo(
+            head,
+            {
+              x: 100,
+            },
+            {
+              x: 0,
+              duration: 2,
+              ease: "power3.out",
+            }
+          );
+
+          gsap.fromTo(
+            heading, 
+            { rotate: 8 },
+            {rotate: 0}
+            
+          )
+
+      
+          // Unsubscribe from further intersection observations for the current element
+          observer.unobserve(image);
+          observer.unobserve(head);
+          observer.unobserve(heading)
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleIntersection, {
+      threshold: 1, // Adjust the threshold as needed
+    });
+
+    // Start observing the components
+    observer.observe(image);
+    observer.observe(head);
+    observer.observe(heading)
+
+    // Stop observing elements when the component is unmounted
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
   return (
     <>
-  
       <section className="FadeIn md:w-[70%] w-[90%] mx-auto py-10 my-3">
         <div className=" grid md:grid-cols-2 gap-5">
           <div>
-            <h1 className="heading font-bold">About us</h1>
+            <h1 ref={h1Ref} className="heading font-bold">
+              About us
+            </h1>
 
             <div className="flex flex-col">
-              <h1 className=" heading  !font-semibold gradient">
+              <h1 ref={headRef} className=" heading  !font-semibold gradient">
                 Welcome to SAATHisoft - Where Digital Dreams Take Flight!
               </h1>
-              <p className="paragraph text-wrap text-justify ml-3">
+              <p ref={pRef} className="paragraph text-wrap text-justify ml-3">
                 We are passionate about transforming digital aspirations into
                 reality. With a commitment to innovation, creativity, and
                 cutting-edge technology.
@@ -34,12 +133,12 @@ const About = () => {
 
           <div className="h-fit w-full flex justify-center mnd:justify-end">
             <Image
+              ref={imageRef}
               height={350}
               width={350}
               src="/Image/about.png"
               alt="About us"
-              className="h-auto w-auto"
-              
+              className="aboutImage h-auto w-auto"
             />
           </div>
         </div>

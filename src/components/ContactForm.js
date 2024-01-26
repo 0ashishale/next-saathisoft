@@ -113,6 +113,9 @@ const ContactForm = () => {
 
   return (
     <>
+      <h2 className="text-2xl font-bold mb-4 text-center items-center">
+        Get in Touch
+      </h2>
       <div className="text-white w-full">
         <ToastContainer />
         <form className="w-full " onSubmit={handleSubmit}>
