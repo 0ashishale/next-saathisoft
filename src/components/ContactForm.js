@@ -17,38 +17,73 @@ const ContactForm = () => {
     e.preventDefault();
  
     
+    // try {
+    //   setProcessing(true);
+    //   const response = await fetch("/api/sendEmail", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify({
+    //       name,
+    //       email,
+    //       message,
+    //     }),
+    //   });
+
+    //   console.log(response);
+
+    //   if (response.ok) {
+    //        setName(null);
+    //        setEmail(null);
+    //        setMessage(null);
+    //     toast.success(`Message Sent Successfully!`);
+    //     setSuccess(true);
+    //   } else {
+    //    return toast.error(`Error Sending Message!`);
+    //     console.error("Failed! Try again later.");
+    //   }
+    // } catch (error) {
+    //   console.error("Error submitting form:", error);
+    //   toast.error(`Faild!, Try again later.`);
+    // } finally {
+    //     setProcessing(false)
+    // }
+
+
+
     try {
-      setProcessing(true);
+      setProcessing(true)
       const response = await fetch("/api/sendEmail", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
+       body: JSON.stringify({
           name,
           email,
           message,
         }),
       });
-
-      console.log(response);
-
-      if (response.ok) {
-           setName(null);
-           setEmail(null);
-           setMessage(null);
-        toast.success(`Message Sent Successfully!`);
-        setSuccess(true);
-      } else {
-       return toast.error(`Error Sending Message!`);
-        console.error("Failed! Try again later.");
+console.log(response);
+      if (!response.ok) {
+        const errorData = await JSON.parse(response);
+        throw new Error(errorData.error || "Error sending email");
       }
+
+      // const responseData = await response.json();
+      // console.log(responseData.message);
+      setSuccess(true)
+      toast.success(`Message sent Successfully.`)
+      // Handle success, show a success message, etc.
     } catch (error) {
-      console.error("Error submitting form:", error);
-      toast.error(`Faild!, Try again later.`);
+      console.error("Error:", error);
+      toast.error(`Error sending message.`)
+      // Handle the error, show an error message, etc.
     } finally {
-        setProcessing(false)
+      setProcessing(false)
     }
+
   };
 
   return (

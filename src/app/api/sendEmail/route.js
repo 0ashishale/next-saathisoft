@@ -197,7 +197,8 @@ export async function POST(request) {
     }
 
     const { name, email, message } = JSON.parse(body);
-
+    // const { name, email, message } = body;
+    // console.log(name, email, message);
     if (!name || !email || !message) {
       throw new Error("All fields are required");
     }
@@ -230,20 +231,25 @@ export async function POST(request) {
     };
 
     const info = await transporter.sendMail(mailOptions);
-
     // console.log(`Message sent: %s`, info.messageId);
 
-    return new Response({
-      status: 200,
-      body: JSON.stringify({ message: "Email sent successfully" }),
-    });
+    if (info.messageId) {
+      console.log(`mail sent successfully`);
+      return new Response({
+        status: 200,
+        body: JSON.stringify({ message: "Email sent successfully" }),
+      });
+    } else {
+      throw new Error(`Error senMail`)
+      
+    }
   } catch (error) {
     console.error(`Error sending email: `, error);
 
     // Throw the error again to be caught by the outer error handler
     return new Response({
       status: 500,
-      body: JSON.stringify(`Error sending mail:`, error )
+      body: JSON.stringify(`Error sending mail:`, error.message )
     })
   }
 }
