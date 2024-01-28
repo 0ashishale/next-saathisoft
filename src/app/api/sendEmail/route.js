@@ -187,7 +187,7 @@ export async function POST(request) {
     throw new Error("Environment variables are required");
   }
 
-  console.log("body", request.body);
+  // console.log("body", request.body);
 
   try {
     let body = "";
@@ -238,10 +238,13 @@ export async function POST(request) {
       body: JSON.stringify({ message: "Email sent successfully" }),
     });
   } catch (error) {
-    // console.error(`Error sending email: `, error);
+    console.error(`Error sending email: `, error);
 
     // Throw the error again to be caught by the outer error handler
-    throw error;
+    return new Response({
+      status: 500,
+      body: JSON.stringify(`Error sending mail:`, error )
+    })
   }
 }
 
