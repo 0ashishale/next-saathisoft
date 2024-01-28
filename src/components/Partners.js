@@ -9,7 +9,7 @@ const Partners = () => {
             OUR DIGITAL PARTNERS
           </h5>
           <h1 className="text-3xl font-semibold tracking-widest text-center">
-            Our Clients
+            Explore our accomplished projects
           </h1>
           <div className="flex flex-wrap gap-10 justify-center items-center mt-6">
             <Card
