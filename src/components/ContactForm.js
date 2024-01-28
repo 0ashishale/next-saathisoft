@@ -62,13 +62,13 @@ const ContactForm = () => {
        body: JSON.stringify({
           name,
           email,
-          message,
+          message
         }),
       });
 console.log(response);
       if (!response.ok) {
-        const errorData = await JSON.parse(response);
-        throw new Error(errorData.error || "Error sending email");
+        // const errorData = await JSON.parse(response);
+        throw new Error("Error sending email");
       }
 
       // const responseData = await response.json();
