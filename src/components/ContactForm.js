@@ -54,6 +54,10 @@ const ContactForm = () => {
 
     try {
       setProcessing(true)
+      console.log(name, email, message);
+      if (!name || !email || !message) {
+       return toast.error(`All fields are required.`)
+      }
       const response = await fetch("/api/sendEmail", {
         method: "POST",
         headers: {

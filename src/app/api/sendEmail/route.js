@@ -198,7 +198,7 @@ export async function POST(request) {
 
     const { name, email, message } = JSON.parse(body);
     // const { name, email, message } = body;
-    // console.log(name, email, message);
+    console.log(name, email, message);
     if (!name || !email || !message) {
       throw new Error("All fields are required");
     }
