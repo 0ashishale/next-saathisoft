@@ -1,95 +1,82 @@
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-} */
-
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+
+
 :root {
   --foreground-rgb: 255, 125, 7;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-  --font-color: #ff7d07;
+  --ancient-gold1000: #ff7d07;
   --backgroundColor: #031e3b;
   --font-color-end: #ffe601;
+  --ancient-gold : #ffe601;
+  --ancient-gold25 : rgba(255, 230, 1, .25);
+  --ancient-gold40 : rgba(255, 230, 1, .4);
+  --ancient-gold60 : rgba(255, 230, 1, .6);
+
+
+
+
+  --ancient-blue :  #190059;
+  --ancient-blue25 :  rgba(2, 1, 56, .25);
+  --ancient-blue40 :  rgba(2, 1, 56, .4);
+  --ancient-blue60 :  rgba(2, 1, 56, .6);
+
+  --font-color : #212121;
+ 
 
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    /* --foreground-color : rgb(255, 255, 255); */
+    --background-start-color: var(--ancient-blue);
+    --background-end-color : #211e00; 
+    --font-color : #f2f2f2;
+    --font-color70 : rgba(255,255,255, .7);
+    --font-color90:  rgba(255,255,255, .9);
+
+
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --foreground-color : rgb(255, 255, 255);
+    --background-start-color: rgb(255, 255, 255);
+    --background-end-color : rgb(255, 255, 255); 
+    --font-color : #1c1c1c;
+    --font-color80 : rgba(0,0,0, .8);
+
+
+
   }
 }
 
 html {
   scroll-behavior: smooth;
-  filter: contrast(120%);
+
 }
 
-body {
-  color: rgb(var(--font-color));
-
+.smallHeading{
+ @apply tracking-wider font-semibold uppercase text-sm text-[--font-color70]
 }
 
 .heading {
-  @apply text-2xl tracking-wide mb-3;
+  @apply text-2xl tracking-wide mb-3 font-bold ;
 }
 
+
+
 .paragraph {
-  @apply text-[16px] text-gray-300 font-light tracking-wide;
+  @apply text-[--font-color90] tracking-wide;
 }
 
 .gradient {
-  @apply bg-gradient-to-r text-center from-[--font-color] via-green-600 to-[--font-color-end] text-transparent bg-clip-text
+  @apply bg-gradient-to-r from-[--font-color] via-[--ancient-gold] to-[--font-color] text-transparent bg-clip-text
 }
 
-.paragraph {
-  animation : 1s ease-in-out pAnimation;
-  animation-timeline: view();
-  animation-range-start: 0;
-  animation-range-end: 300px;
-  position: relative;
-  overflow: hidden;
-}
-
-@keyframes pAnimation {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
 
 
 /* loading css */
@@ -133,23 +120,6 @@ body {
 }
 
 
-.heroSection::before {
-  /* content: '';
- position: absolute;
- height: min-content;
- width: auto;
- background-color: black; */
-
-}
-
-
-
-.heroHeading {
-  border-radius: 15px 0px 15px 0px;
-  border-bottom: 1px solid var(--font-color-end);
-  border-top: 1px solid var(--font-color-end);
-}
-
 
 
 /* two left and right box */
@@ -176,79 +146,6 @@ body {
 
 
 /* end hero section */
-
-
-/* about section */
-/* .aboutImage{
-  animation: 1s ease-in-out zoom;
-  animation-timeline: view();
-}
-@keyframes zoom {
-  to
-  from {
-    scale: 1;
-  }
-} */
-
-
-
-/* services section */
-.servicesContainer {
-  display: grid;
-  grid-gap: 20px;
-  align-items: stretch;
-  grid-template-columns: 1fr 1fr;
-}
-
-@media only screen and (max-width:1200px) {
-  .servicesContainer {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* end service section */
-
-
-/*our partners -- flip card section */
-.flip-card {
-  background-color: transparent;
-  perspective: 1000px;
-}
-
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-  box-shadow: 0 5px 9px 0 rgba(227, 222, 222, 0.2);
-}
-
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
-}
-
-.flip-card-front,
-.flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0.75rem;
-}
-
-
-.flip-card-back {
-  transform: rotateY(180deg);
-
-}
-
-/* end flip card */
 
 
 /* footer css */
@@ -343,4 +240,30 @@ body {
     }
   }
 
+  .aboutCard {
+    transform: translateY(0);
+  }
+  .servicesCard{
+    transform: translateY(0);
+
+  }
+
 }
+
+
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.fadeUp {
+  opacity: 0;
+  animation: fadeUp 1s ease-out forwards;
+}
+

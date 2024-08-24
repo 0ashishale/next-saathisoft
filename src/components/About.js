@@ -1,15 +1,14 @@
-"use client";
-import { GiArmorUpgrade } from "react-icons/gi";
-import { PiStrategyBold } from "react-icons/pi";
-import { FaDownLeftAndUpRightToCenter } from "react-icons/fa6";
-import { VscWorkspaceTrusted } from "react-icons/vsc";
-import Image from "next/image";
+'use client';
+import { GiArmorUpgrade } from 'react-icons/gi';
+import { PiStrategyBold } from 'react-icons/pi';
+import { FaDownLeftAndUpRightToCenter } from 'react-icons/fa6';
+import { VscWorkspaceTrusted } from 'react-icons/vsc';
+import Image from 'next/image';
 
-import { gsap } from "gsap/gsap-core";
-import { useEffect, useRef } from "react";
+import { gsap } from 'gsap/gsap-core';
+import { useEffect, useRef } from 'react';
 // import { SplitText } from "gsap/SplitText";
 // import { SplitText } from "gsap/SplitText";
-
 
 const About = () => {
   const imageRef = useRef(null);
@@ -37,12 +36,9 @@ const About = () => {
     const image = imageRef.current;
     const head = h1Ref.current;
     const heading = headRef.current;
-    heading.style.overflow = "hidden"
+    heading.style.overflow = 'hidden';
     const paragraph = pRef.current;
 
-
-
-  
     const handleIntersection = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -57,8 +53,8 @@ const About = () => {
               opacity: 1,
               y: 0,
               duration: 2,
-              ease: "power3.out",
-            }
+              ease: 'power3.out',
+            },
           );
 
           gsap.fromTo(
@@ -69,22 +65,28 @@ const About = () => {
             {
               x: 0,
               duration: 2,
-              ease: "power3.out",
-            }
+              ease: 'power3.out',
+            },
+          );
+          gsap.fromTo(
+            paragraph,
+            {
+              opacity: 0,
+              y: 100,
+            },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 2,
+              ease: 'power3.out',
+            },
           );
 
-          gsap.fromTo(
-            heading, 
-            { rotate: 8 },
-            {rotate: 0}
-            
-          )
+         
 
-      
           // Unsubscribe from further intersection observations for the current element
           observer.unobserve(image);
           observer.unobserve(head);
-          observer.unobserve(heading)
         }
       });
     };
@@ -96,7 +98,7 @@ const About = () => {
     // Start observing the components
     observer.observe(image);
     observer.observe(head);
-    observer.observe(heading)
+    observer.observe(heading);
 
     // Stop observing elements when the component is unmounted
     return () => {
@@ -105,74 +107,75 @@ const About = () => {
   }, []);
   return (
     <>
-      <section className="FadeIn md:w-[70%] w-[90%] mx-auto py-10 my-3">
-        <div className=" grid md:grid-cols-2 gap-5">
-          <div>
-            <h1 ref={h1Ref} className="heading font-bold">
+      <section className='FadeIn md:w-[90%] w-[90%] mx-auto p-6 bg-slate-500m'>
+        <div className=' grid md:grid-cols-2 gap-5'>
+          <div className='flex flex-col gap-5'>
+            <h1 ref={h1Ref} className='smallHeading'>
               About us
             </h1>
 
-            <div className="flex flex-col">
-              <h1 ref={headRef} className=" heading  !font-semibold gradient">
-                Welcome to SAATHisoft - Where Digital Dreams Take Flight!
-              </h1>
-              <p ref={pRef} className="paragraph text-wrap text-justify ml-3">
+            <div className='flex flex-col '>
+              <h3 ref={headRef} className='heading gradient'>
+                SAATHisoft - Where Digital Dreams Take Flight!
+              </h3>
+              <p ref={pRef} className='paragraph'>
                 We are passionate about transforming digital aspirations into
-                reality. With a commitment to innovation, creativity, and
+                reality with a commitment to innovation, creativity, and
                 cutting-edge technology.
+                <br />
                 <br />
                 Our team of skilled professionals is dedicated to crafting
                 unique solutions tailored to meet the ever-evolving demands of
                 the digital landscape. From web development and design to
                 digital marketing strategies, we seamlessly blend expertise with
                 a keen understanding of your brand to deliver exceptional
-                results
+                results.
               </p>
             </div>
           </div>
 
-          <div className="h-fit w-full flex justify-center mnd:justify-end">
+          <div className='h-fit w-full flex justify-center mnd:justify-end'>
             <Image
               ref={imageRef}
               height={350}
               width={350}
-              src="/Image/about.png"
-              alt="About us"
-              className="aboutImage h-auto w-auto"
+              src='/Image/about.png'
+              alt='About us'
+              className='aboutImage h-auto w-auto'
             />
           </div>
         </div>
 
-        <div className="mt-10">
-          <h1 className="heading">Why choose us?</h1>
-          <h1 className="heading ml-3 bg-gradient-to-r text-center from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text">
-            We are the bricks to build your dreams!
+        <div className='mt-10 text-[--font-color90]'>
+          <h1 className='text-[--font-color70]'>Why choose us?</h1>
+          <h1 className='text-xl mt-2'>
+            We are the bricks to build your dreams.
           </h1>
-          <div className="mt-10 flex flex-wrap justify-center gap-5">
-            <div className="flex flex-col gap-5 justify-center items-center border border-gray-700 hover:border-[--font-color] transition-all duration-200 p-3">
-              <GiArmorUpgrade size={40} className="text-[--font-color]" />
-              <h1 className="heading w-[15rem] bg-gradient-to-r text-center from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text">
+          <div className='mt-8 flex flex-wrap justify-center gap-10'>
+            <div className='aboutCard'>
+              <GiArmorUpgrade size={40} className='text-[--ancient-gold1000]' />
+              <h1 className='heading '>
                 Innovative Solutions
               </h1>
             </div>
-            <div className="flex flex-col gap-5 justify-center items-center border border-gray-700 hover:border-[--font-color] transition-all duration-200 p-3">
-              <PiStrategyBold size={40} className="text-[--font-color]" />
-              <h1 className="heading w-[15rem] text-center bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text">
+            <div className='aboutCard'>
+              <PiStrategyBold size={40} className='text-[--ancient-gold1000]' />
+              <h1 className='heading '>
                 Strategic Digital Marketing
               </h1>
             </div>
-            <div className="flex flex-col gap-5 justify-center items-center border border-gray-700 hover:border-[--font-color] transition-all duration-200 p-3">
+            <div className='aboutCard'>
               <FaDownLeftAndUpRightToCenter
                 size={40}
-                className="text-[--font-color]"
+                className='text-[--ancient-gold1000]'
               />
-              <h1 className="heading w-[15rem] text-center bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text">
+              <h1 className='heading'>
                 Customer-Centric Approach
               </h1>
             </div>
-            <div className="flex flex-col gap-5 justify-center items-center border border-gray-700 hover:border-[--font-color] transition-all duration-200 p-3">
-              <VscWorkspaceTrusted size={40} className="text-[--font-color]" />
-              <h1 className="heading w-[15rem] text-center bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text">
+            <div className='aboutCard'>
+              <VscWorkspaceTrusted size={40} className='text-[--ancient-gold1000]' />
+              <h1 className='heading '>
                 Reliability and Trust
               </h1>
             </div>

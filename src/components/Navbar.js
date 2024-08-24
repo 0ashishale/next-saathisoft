@@ -5,40 +5,30 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import gsap from 'gsap';
+import { usePathname } from 'next/navigation';
 
 const Navbar = () => {
+  const path = usePathname() 
+
   const [isOpen, setIsOpen] = useState(false);
+  const [isBg, setIsBg] = useState(false)
 
-  const navRef = useRef(null)
 
-  useEffect(() => {
-   const tl = gsap.fromTo(
-      navRef.current,
-      {opacity : 0, top: "-100px"},
-      { opacity: 1, top:0, duration: 1, ease: "expo.out" }
-    );
 
-    //cleanUp function
-    return () => {
-      //kill the animation when component is unmounted
-      tl.kill();
-    }
-  },[])
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  const [scrollHeight, setScrollHeight] = useState(0);
 
-const [height, setHeight] = useState(200)
   useEffect(() => {
     const handleScroll = () => {
-      const scroll = window.scrollY
-          setScrollHeight(scroll)
-          if (scroll > 200) {
-            setHeight(150)
-          } 
+      if(window.scrollY > 50){
+        setIsBg(true)
+      }else{
+        setIsBg(false)
+      }
+  
     }
     
     window.addEventListener('scroll', handleScroll)
@@ -50,17 +40,16 @@ const [height, setHeight] = useState(200)
 
   return (
     <nav
-      ref={navRef}
       className={`
-      relative
+     py-1.5
       
       ${
-        scrollHeight > 200
-          ? "bg-black transition-all duration-1000"
-          : "transition-color duration-700 "
+        isBg
+          ? "bg-[--background-start-color] transition-all duration-500"
+          : "transition-color duration-500  "
       }`}
     >
-      <div className="md:w-[80%] w-[90%] mx-auto">
+      <div className="md:w-[90%] w-[90%] mx-auto">
         <div className="flex items-center justify-between">
           <Link href="/">
             <Image
@@ -76,7 +65,7 @@ const [height, setHeight] = useState(200)
           <div className="md:hidden">
             <button
               type="button"
-              className="text-gray-300 hover:text-white focus:outline-none focus:text-white"
+              className="text-[--font-color70] hover:text-[--font-color] focus:outline-none "
               onClick={toggleMenu}
             >
               <svg className="h-8 w-8 fill-current" viewBox="0 0 24 24">
@@ -97,56 +86,57 @@ const [height, setHeight] = useState(200)
             </button>
           </div>
           <div className={`hidden md:block ${isOpen ? "block" : "hidden"}`}>
-            <div className="relative flex flex-row items-baseline space-x-4 text-sm tracking-wide text-gray-200">
+            <div className="relative flex flex-row items-baseline space-x-4 text-sm tracking-wide text-[--font-color]">
               <Link
                 href="/"
-                className="  hover:text-[--font-color-end] transition-all duration-200 hover:px-3 hover:py-1
-                    hover:bg-gray-600/80 rounded  "
+                className={`hover:text-[--font-color] transition-all duration-200 hover:px-3 hover:py-1
+                    hover:bg-gray-600/10 rounded ${path === '/' ? 'underline' : ''}`} 
               >
                 Home
               </Link>
 
               <Link
                 href="/services"
-                className="  hover:text-[--font-color-end] 
-                transition-all hover:bg-gray-600/80 rounded duration-200 hover:px-3 hover:py-1
-                "
+                className={`hover:text-[--font-color] 
+                transition-all hover:bg-gray-600/10 rounded duration-200 hover:px-3 hover:py-1
+                ${path === '/services' ? 'underline' : ''}`}  
               >
-                Services
+               Our Services
               </Link>
-              <Link
+              {/* <Link
                 href="/about"
-                className="  hover:text-[--font-color-end]
+                className="  hover:text-[--font-color]
                 transition-all hover:bg-gray-600/80 rounded duration-200 hover:px-3 hover:py-1"
               >
                 About
-              </Link>
+              </Link> */}
               <Link
                 href="/contact"
-                className=" hover:text-[--font-color-end] 
-                transition-all hover:bg-gray-600/80 rounded duration-200 hover:px-3 hover:py-1"
+                className={`hover:text-[--font-color] 
+                  transition-all hover:bg-gray-600/10 rounded duration-200 hover:px-3 hover:py-1
+                  ${path === '/contact' ? 'underline' : ''}`}  
               >
-                Contact
+                Contact Us
               </Link>
             </div>
           </div>
         </div>
         <div className={`md:hidden ${isOpen ? "block" : "hidden"}`}>
           <div
-            className=" flex flex-col items-end gap-2 pr-2 text-gray-200 pb-4"
+            className=" flex flex-col items-end gap-2 pr-2 text-[--font-color] pb-4"
             onClick={() => setIsOpen(false)}
           >
-            <Link href="/" className="  hover:text-[--font-color]">
+            <Link href="/" className={` hover:text-[--font-color] ${path === '/' ? 'underline' : ''}`}  >
               Home
             </Link>
-            <Link href="/services" className="  hover:text-[--font-color]">
-              Services
+            <Link href="/services" className={` hover:text-[--font-color] ${path === 'services' ? 'underline' : ''}`}>
+             Our Services
             </Link>
-            <Link href="/about" className="  hover:text-[--font-color]  ">
+            {/* <Link href="/about" className="  hover:text-[--font-color]  ">
               About
-            </Link>
-            <Link href="/contact" className="  hover:text-[--font-color] ">
-              Contact
+            </Link> */}
+            <Link href="/contact" className={` hover:text-[--font-color] ${path === 'contact' ? 'underline' : ''}`}>
+              Contact Us
             </Link>
           </div>
         </div>

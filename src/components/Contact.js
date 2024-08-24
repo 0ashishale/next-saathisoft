@@ -1,13 +1,10 @@
-"use client";
-import { MdOutlineLocalPhone } from "react-icons/md";
-import { IoMailOutline } from "react-icons/io5";
-import { FaFacebookF } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
-import { FaLinkedinIn } from "react-icons/fa6";
-import ContactForm from "./ContactForm";
+'use client';
 
-import { gsap } from "gsap/gsap-core";
-import { useEffect, useRef } from "react";
+import ContactForm from './ContactForm';
+
+import { gsap } from 'gsap/gsap-core';
+import { useEffect, useRef } from 'react';
+import { Facebook, Instagram, LinkedIn, Location, Mail, Phone, TwitterX } from './icons';
 
 const Contact = () => {
   const feelRef = useRef(null);
@@ -56,8 +53,8 @@ const Contact = () => {
               left: 0,
               opacity: 1,
               duration: 2.2,
-              ease: "power2.inOut",
-            }
+              ease: 'power2.inOut',
+            },
           );
 
           // Unsubscribe from further intersection observations for the current element
@@ -81,89 +78,91 @@ const Contact = () => {
 
   return (
     <>
-      <section className="FadeIn md:w-[70%] w-[90%] mx-auto py-5 my-3">
-        <div>
-          <div
-            className="flex flex-col 
-            md:bg-[url('/Image/contact.png')] 
-           bg-no-repeat bg-contain bg-center
-          
-           lg:flex-row justify-between gap-y-10 w-full"
+      <section className='FadeIn md:w-[90%] w-[90%] flex md:flex-row flex-col gap-10 mx-auto p-6 justify-between'>
+        <div className='lg:mr-5 h-full'>
+          <h1 className='smallHeading'>Contact Us</h1>
+          <p
+            ref={feelRef}
+            className=' mt-2 relative overflow-hidden text-6xl font-bold bg-gradient-to-r from-[--font-color] to-[--font-color-end] bg-clip-text text-transparent'
           >
-            <div className="lg:mr-5 h-full">
-              <h1 className="text-2xl font-semibold mb-4">Contact Us</h1>
-              <p
-                ref={feelRef}
-                className="relative overflow-hidden text-6xl font-bold bg-gradient-to-r from-[--font-color] to-[--font-color-end] bg-clip-text text-transparent"
-              >
-                Feel free <br /> to contact
-              </p>
-              <div className="mt-10 flex flex-col gap-2">
-                <span className="flex gap-2 items-center">
-                  <MdOutlineLocalPhone
-                    size={20}
-                    className="text-[--font-color]"
-                  />
-                  <a
-                    href="tel:+9779816189588"
-                    rel="noreferrer noopener"
-                    target="_blank"
-                  >
-                    +9779816189588
-                  </a>{" "}
-                  /
-                  <a
-                    href="tel:+9779815138271"
-                    rel="noreferrer noopener"
-                    target="_blank"
-                  >
-                    +9779815138271
-                  </a>
-                </span>
-                <span className="flex gap-2 items-center">
-                  <IoMailOutline size={20} className="text-[--font-color]" />
-                  <a
-                    href="mailto:saathisoft02@gmail.com"
-                    rel="noreferrer noopener"
-                    target="_blank"
-                  >
-                    saathisoft02@gmail.com
-                  </a>
-                </span>
-                <div className="flex gap-5 text-[--font-color] ">
-                  <a
-                    href="https://www.facebook.com/profile.php?id=100084999577902"
-                    rel="noreferrer noopener"
-                    target="_blank"
-                    className="h-[4rem] w-[4rem] rounded-full flex items-center justify-center bg-gray-900/60 hover:bg-gray-800/70 transition-all duration-300"
-                  >
-                    <FaFacebookF size={20} />
-                  </a>
-
-                  <a
-                    href="https://www.instagram.com/saathisoft02/"
-                    rel="noreferrer noopener"
-                    target="_blank"
-                    className="h-[4rem] w-[4rem] rounded-full flex items-center justify-center bg-gray-900/60 hover:bg-gray-800/70 transition-all duration-300"
-                  >
-                    <FaInstagram size={20} />
-                  </a>
-                  <a
-                    href="#"
-                    rel="noreferrer"
-                    target="_blank"
-                    className="h-[4rem] w-[4rem] rounded-full flex items-center justify-center bg-gray-900/60 hover:bg-gray-800/70 transition-all duration-300"
-                  >
-                    <FaLinkedinIn size={20} />
-                  </a>
-                </div>
-              </div>
+            Feel free <br /> to contact
+          </p>
+          <div className='mt-8'>
+            <div className='flex flex-col gap-2 text-[--font-color]'>
+            <span className='flex gap-2 items-center'>
+                <Location size={20} color='white' />
+                    <p>Pokhara, Nepal</p>
+              </span>
+              <span className='flex gap-2 items-center'>
+                <Phone size={20} color='white' />
+                <a
+                  href='tel:+9779816189588'
+                  rel='noreferrer noopener'
+                  target='_blank'
+                >
+                  +9779816189588
+                </a>{' '}
+                /
+                <a
+                  href='tel:+9779815138271'
+                  rel='noreferrer noopener'
+                  target='_blank'
+                >
+                  +9779815138271
+                </a>
+              </span>
+              <span className='flex gap-2 items-center'>
+                <Mail size={20} color='white' />
+                <a
+                  href='mailto:saathisoft02@gmail.com'
+                  rel='noreferrer noopener'
+                  target='_blank'
+                >
+                  saathisoft02@gmail.com
+                </a>
+              </span>
             </div>
 
-            <div className="flex flex-col w-[20rem] rounded-3xl">
-              <ContactForm />
+            <div className=' mt-6 flex gap-5 text-[--font-color] '>
+              <a
+                href='https://www.facebook.com/profile.php?id=100084999577902'
+                rel='noreferrer noopener'
+                target='_blank'
+                className='contactIcon'
+              >
+                <Facebook size={20} />
+              </a>
+
+              <a
+                href='https://www.instagram.com/saathisoft02/'
+                rel='noreferrer noopener'
+                target='_blank'
+                className='contactIcon'
+              >
+                <Instagram size={20} color='white' />
+              </a>
+              <a
+                href='#'
+                rel='noreferrer'
+                target='_blank'
+                className='contactIcon'
+              >
+                <LinkedIn size={20} color='white' />
+              </a>
+              <a
+                href='#'
+                rel='noreferrer'
+                target='_blank'
+                className='contactIcon'
+              >
+                <TwitterX size={20} color='white' />
+              </a>
             </div>
           </div>
+        </div>
+
+        <div className='md:w-[50%]'>
+          <ContactForm />
         </div>
       </section>
     </>

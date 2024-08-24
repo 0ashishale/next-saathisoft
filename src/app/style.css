@@ -1,0 +1,97 @@
+
+
+/* hero section */
+
+.heroIcon {
+    @apply p-2 bg-black/60 hover:bg-[--ancient-gold] hover:text-black transition-all duration-300 rounded-full shadow-md shadow-white text-white
+  }
+
+
+  /* hero section end */
+
+  /* about section */
+  
+  .aboutCard{
+    @apply flex flex-col gap-5 items-center justify-between border border-[--ancient-gold40] hover:border-[--ancient-gold] transition-all duration-500 p-4 rounded-md 
+  }
+
+  .aboutCard h1 {
+        @apply  w-[14rem] bg-gradient-to-r text-center from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text
+  }
+
+  /* about section end */
+
+
+  /* services */
+  /* services section */
+.servicesContainer {
+    display: grid;
+    grid-gap: 2rem;
+    align-items: stretch;
+    grid-template-columns: 1fr 1fr;
+  }
+
+
+  
+  @media only screen and (max-width:1200px) {
+    .servicesContainer {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* services end */
+
+  /* contact section */
+
+  .contactIcon{
+    @apply h-[3rem] w-[3rem] rounded-full flex items-center justify-center bg-[--ancient-gold25] text-[--font-color70] hover:bg-[--ancient-gold60] transition-all duration-300
+  }
+
+  .formInput{
+    @apply p-2 w-full border border-gray-300 rounded-md bg-transparent outline-none text-sm
+  }
+
+
+
+
+  
+/*our partners -- flip card section */
+.flip-card {
+  background-color: transparent;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 5px 9px 0 rgba(227, 222, 222, 0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.75rem;
+}
+
+
+.flip-card-back {
+  transform: rotateY(180deg);
+
+}
+
+/* end flip card */

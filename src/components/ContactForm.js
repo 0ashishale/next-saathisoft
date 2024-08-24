@@ -92,15 +92,15 @@ console.log(response);
 
   return (
     <>
-      <h2 className="text-2xl font-bold mb-4 text-center items-center">
-        Get in Touch
+      <h2 className="text-[--font-color70]">
+        Send us a message
       </h2>
-      <div className="text-white w-full">
+      <div className="text-[--font-color] w-full mt-2">
         <ToastContainer />
         <form className="w-full " onSubmit={handleSubmit}>
-          <div className="mb-4">
+          <div className="mb-3">
             <label htmlFor="name" className="block text-sm font-medium ">
-              Name:
+              Name
             </label>
             <input
               required
@@ -109,13 +109,13 @@ console.log(response);
               type="text"
               id="name"
               name="name"
-              className="mt-1 p-2 w-full border border-gray-300 rounded-md bg-transparent outline-none text-sm"
+              className="formInput"
             />
           </div>
 
           <div className="mb-4">
             <label htmlFor="email" className="block text-sm font-medium ">
-              Email:
+              Email
             </label>
             <input
               required
@@ -131,7 +131,7 @@ console.log(response);
 
           <div className="mb-4">
             <label htmlFor="message" className="block text-sm font-medium ">
-              Message:
+              Message
             </label>
             <textarea
               required
@@ -139,14 +139,14 @@ console.log(response);
               placeholder="Your words..."
               id="message"
               name="message"
-              rows={4}
+              rows={3}
               className="mt-1 p-2 w-full border border-gray-300 rounded-md bg-transparent outline-none text-sm"
             ></textarea>
           </div>
 
           <button
             type="submit"
-            className=" text-white p-2 rounded bg-black/80 hover:bg-orange-600 text-center w-full transition-all duration-300 text-sm tracking-wider"
+            className=" text-black font-semibold bg-[--ancient-gold60] border-[--ancient-gold60] p-2 rounded hover:bg-[--ancient-gold] text-center w-full transition-all duration-300 text-sm tracking-wider"
             disabled={processing}
           >
             {processing ? (
@@ -163,7 +163,7 @@ console.log(response);
                     <span className="text-green-300">Succeed</span>
                   </>
                 ) : (
-                  <>Submit</>
+                  <>Send</>
                 )}
               </>
             )}

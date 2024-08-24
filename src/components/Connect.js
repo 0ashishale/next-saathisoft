@@ -110,11 +110,13 @@ useEffect(() => {
     observer.disconnect();
   };
 }, []);
+
+
   return (
     <>
-      <section className="FadeIn w-[90%] md:w-[70%] mx-auto flex items-center flex-col md:flex-row my-10">
+      <section className="FadeIn flex items-center flex-col md:flex-row p-6">
         <div className="py-5 h-28 w-full ">
-          <h5 className="gradient text-sm tracking-widest font-semibold mb-3">
+          <h5 className="gradient  tracking-wider font-semibold mb-3">
             LET&apos;S CONNECT
           </h5>
           <div>

@@ -18,6 +18,7 @@
 
 import { Inter } from "next/font/google";
 import "./globals.css";
+import './style.css'
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
@@ -55,7 +56,8 @@ export default function RootLayout({ children }) {
         <link rel="canonical" href="https://www.saathisoft.com.np" />
       </head>
       <body
-        className={`${inter.className} text-white bg-gradient-to-r bg-transparent from-[var(--backgroundColor)] to-black box-border max-w-[1980px] mx-auto`}
+        className={`${inter.className} 
+         bg-gradient-to-l from-[var(--background-start-color)] to-[var(--background-end-color)] box-border max-w-[1980px] mx-auto `}
       >
         <header className="w-full sticky top-0 z-[1000]">
           <Navbar />
