@@ -44,8 +44,8 @@ const Navbar = () => {
   return (
     <nav
       className={`
-     py-1.5
-      
+   
+      py-1
       ${
         isBg
           ? "bg-[--background-start-color] transition-all duration-500"
@@ -56,11 +56,11 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           <Link href="/">
             <Image
-              width={180}
+              width={200}
               height={100}
               src="/Image/logo.png"
               alt="Saathisoft Logo"
-              className="h-auto w-auto]"
+              className="h-auto w-auto max-h-[56px]"
             />
           </Link>
 

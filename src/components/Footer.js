@@ -39,20 +39,20 @@ const Footer = () => {
         <div className="FadeIn md:w-[--width-lg] w-[--width-sm] mx-auto p-[--p-container]  h-fit flex md:flex-row flex-col gap-10">
           <div className="flex flex-col">
             <h1 className="smallHeading">Quick Links</h1>
-            <div className="flex flex-col gap-1 mt-3 ml-1 text-[--font-color]">
+            <div className="flex flex-col gap-1 mt-3 text-[--font-color] text-sm  tracking-wider font-thin underline">
               <Link href="/">
                 <span className=" hover:text-[--ancient-gold] duration-300 ">
-                  &#10919;&nbsp; Home
+                   Home
                 </span>
               </Link>
               <Link href="/services">
                 <span className=" hover:text-[--ancient-gold] duration-300">
-                  &#10919;&nbsp; Our Services
+                  Our Services
                 </span>
               </Link>
               <Link href="/contact">
                 <span className=" hover:text-[--ancient-gold] duration-300">
-                  &#10919;&nbsp; Contact Us
+                   Contact Us
                 </span>
               </Link>
             </div>
@@ -118,7 +118,9 @@ const Footer = () => {
             scrollHeight > 600 ? "visibble" : "invisible"
           } fixed bottom-5 right-5  bg-gray-700 bg-opacity-50 transition-colors cursor-pointer  h-10 w-10 rounded-full flex justify-center items-center border border-[--ancient-gold] text-[--font-color] hover:text-[--ancient-gold]`}
         >
-          <span ><GrLinkTop /></span>
+          <span>
+            <GrLinkTop />
+          </span>
         </div>
       </section>
     </>

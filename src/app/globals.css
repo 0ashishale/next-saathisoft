@@ -220,7 +220,7 @@ html {
 .move {
   position: relative;
   animation-name: moveObj;
-  animation-duration: 1s;
+  animation-duration: 2s;
   animation-iteration-count: infinite;
   animation-direction: alternate;
   animation-timing-function: linear;
@@ -295,16 +295,14 @@ html {
 
   /* footer logo animation: ; */
   @keyframes moveObj {
-    0% {
-
-      left: 0%;
+    0%,100% {
+      left: -20px;
+    }
+    50% {
+      left: 20px;
     }
 
-    100% {
-
-      left: 10%;
-
-    }
+   
   }
 
   .aboutCard {
