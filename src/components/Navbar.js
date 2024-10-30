@@ -1,44 +1,35 @@
-'use client';
-import { useState, useEffect, useRef } from 'react';
+"use client";
+import { useState, useEffect, useRef } from "react";
 
-import Link from 'next/link';
-import Image from 'next/image';
+import Link from "next/link";
+import Image from "next/image";
 
-import gsap from 'gsap';
-import { usePathname } from 'next/navigation';
+import gsap from "gsap";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
-  const path = usePathname() 
+  const path = usePathname();
 
   const [isOpen, setIsOpen] = useState(false);
-  const [isBg, setIsBg] = useState(false)
+  const [isBg, setIsBg] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-
-
-
-  
-
-
-
-
   useEffect(() => {
     const handleScroll = () => {
-      if(window.scrollY > 50){
-        setIsBg(true)
-      }else{
-        setIsBg(false)
+      if (window.scrollY > 50) {
+        setIsBg(true);
+      } else {
+        setIsBg(false);
       }
-  
-    }
-    window.addEventListener('scroll', handleScroll)
+    };
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
@@ -64,7 +55,7 @@ const Navbar = () => {
             />
           </Link>
 
-          <div className="md:hidden">
+          <div className="md:hidden relative z-30">
             <button
               type="button"
               className="text-[--font-color70] hover:text-[--font-color] focus:outline-none "
@@ -91,33 +82,33 @@ const Navbar = () => {
             <div className="relative flex flex-row items-baseline space-x-4 text-sm tracking-wide text-[--font-color]">
               <Link
                 href="/"
-                className={`hover:text-[--font-color] transition-all duration-200 hover:px-3 hover:py-1
-                    hover:bg-gray-600/10 rounded ${
-                      path === "/" ? "underline" : ""
-                    }`}
+                className={`hover:text-[--font-color]
+                transition-all  rounded duration-200  hover:underline
+                ${path === "/" ? "underline" : ""}`}
               >
                 Home
               </Link>
 
               <Link
                 href="/services"
-                className={`hover:text-[--font-color] 
-                transition-all hover:bg-gray-600/10 rounded duration-200 hover:px-3 hover:py-1
+                className={`hover:text-[--font-color]
+                transition-all  rounded duration-200  hover:underline
                 ${path === "/services" ? "underline" : ""}`}
               >
                 Our Services
               </Link>
-              {/* <Link
+              <Link
                 href="/about"
-                className="  hover:text-[--font-color]
-                transition-all hover:bg-gray-600/80 rounded duration-200 hover:px-3 hover:py-1"
+                className={`hover:text-[--font-color]
+                transition-all  rounded duration-200  hover:underline
+                ${path === "/about" ? "underline" : ""}`}
               >
-                About
-              </Link> */}
+                About Us
+              </Link>
               <Link
                 href="/contact"
-                className={`hover:text-[--font-color] 
-                  transition-all hover:bg-gray-600/10 rounded duration-200 hover:px-3 hover:py-1
+                className={`bg-[--ancient-gold] hover:shadow-md dark:hover:shadow-white/40 hover:shadow-black/30 py-1 px-3 text-black 
+                  hover:underline rounded   
                   ${path === "/contact" ? "underline" : ""}`}
               >
                 Contact Us
@@ -146,14 +137,19 @@ const Navbar = () => {
             >
               Our Services
             </Link>
-            {/* <Link href="/about" className="  hover:text-[--font-color]  ">
-              About
-            </Link> */}
+            <Link
+              href="/about"
+              className={` hover:text-[--font-color] ${
+                path === "about" ? "underline" : ""
+              }`}
+            >
+              About Us
+            </Link>
             <Link
               href="/contact"
-              className={` hover:text-[--font-color] ${
-                path === "contact" ? "underline" : ""
-              }`}
+              className={`bg-[--ancient-gold] hover:shadow-md dark:hover:shadow-white/40 hover:shadow-black/30 py-1 px-3 text-black 
+                  hover rounded   hover:py-1
+                  ${path === "/contact" ? "underline" : ""}`}
             >
               Contact Us
             </Link>

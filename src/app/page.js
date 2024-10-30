@@ -11,9 +11,9 @@ export default function Home() {
   return (
     <main className="flex flex-col md:gap-16 gap-8">
       <Hero />
-      <About />
-      <Line />
       <Services />
+      <Line />
+      <About />
       <Line />
       <Partners />
       <Contact />

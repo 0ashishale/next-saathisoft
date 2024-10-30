@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { MdOutlineDesignServices } from "react-icons/md";
 import { MdOutlineComputer } from "react-icons/md";
@@ -10,8 +8,6 @@ import { RiMenuSearchLine } from "react-icons/ri";
 import { IoShareSocialOutline } from "react-icons/io5";
 import { CiMobile2 } from "react-icons/ci";
 import { IoIosTrendingUp } from "react-icons/io";
-
-import Image from "next/image";
 
 const Services = () => {
   return (
@@ -35,7 +31,6 @@ const Services = () => {
             }
             title={`Graphics Design`}
             description={`Rise your brand with our expert graphic design services, turning ideas into stunning visual masterpieces.`}
-            ref={(el) => (servicesCardRef.current[0] = el)}
           />
           <ServicesCard
             icon={
@@ -43,7 +38,6 @@ const Services = () => {
             }
             title={`Video Creation`}
             description={`Video marketing involves using compelling video content to promote, educate, or engage with an audience, aiming to increase brand awareness, drive traffic, and achieve specific marketing goals.`}
-            ref={(el) => (servicesCardRef.current[1] = el)}
           />
           <ServicesCard
             icon={
@@ -51,7 +45,6 @@ const Services = () => {
             }
             title={`Web Development`}
             description={`Creating a website involves designing, coding, and structuring web pages to deliver content and functionality over the internet.`}
-            ref={(el) => (servicesCardRef.current[2] = el)}
           />
           <ServicesCard
             icon={<CiMobile2 size={40} className="text-[--font-color]" />}
@@ -64,7 +57,6 @@ const Services = () => {
             }
             title={`Branding`}
             description={`Branding encompasses creating a distinctive identity, including a company's values, messaging, visuals, and experiences, to establish a unique and memorable impression that resonates with its target audience.`}
-            ref={(el) => (servicesCardRef.current[3] = el)}
           />
 
           <ServicesCard
@@ -91,7 +83,6 @@ const Services = () => {
             }
             title={`Social Media Marketing`}
             description={`
-
             Social media marketing involves using social platforms to create and share content, engage with audiences, build brand awareness, drive website traffic, and achieve marketing goals through targeted advertising and organic interactions.`}
           />
         </div>
@@ -129,7 +120,7 @@ const ServicesCard = ({ icon, title, description }) => {
             <Link
               href={"/services"}
               className="text-2xl border border-[--ancient-gold40] px-6 py-1 flex md:w-fit items-center justify-center rounded hover:bg-[--font-color]
-                duration-500  md:group-hover:translate-x-10 group-hover:border-[--ancient-gold] ease-out text-[--font-color] active:bg-blue-600/20 focus-within:bg-blue-600/20
+                duration-500  md:group-hover:px-14 group-hover:border-[--ancient-gold] ease-out text-[--font-color] active:bg-blue-600/20 focus-within:bg-blue-600/20
                 "
             >
               <IoIosTrendingUp />
