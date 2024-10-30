@@ -52,11 +52,10 @@ const Navbar = () => {
           : "transition-color duration-500  "
       }`}
     >
-      <div className="md:w-[90%] w-[95%] mx-auto">
+      <div className="md:w-[--width-lg] w-[--width-sm] mx-auto ">
         <div className="flex items-center justify-between">
           <Link href="/">
             <Image
-              
               width={180}
               height={100}
               src="/Image/logo.png"
@@ -93,7 +92,9 @@ const Navbar = () => {
               <Link
                 href="/"
                 className={`hover:text-[--font-color] transition-all duration-200 hover:px-3 hover:py-1
-                    hover:bg-gray-600/10 rounded ${path === '/' ? 'underline' : ''}`} 
+                    hover:bg-gray-600/10 rounded ${
+                      path === "/" ? "underline" : ""
+                    }`}
               >
                 Home
               </Link>
@@ -102,9 +103,9 @@ const Navbar = () => {
                 href="/services"
                 className={`hover:text-[--font-color] 
                 transition-all hover:bg-gray-600/10 rounded duration-200 hover:px-3 hover:py-1
-                ${path === '/services' ? 'underline' : ''}`}  
+                ${path === "/services" ? "underline" : ""}`}
               >
-               Our Services
+                Our Services
               </Link>
               {/* <Link
                 href="/about"
@@ -117,7 +118,7 @@ const Navbar = () => {
                 href="/contact"
                 className={`hover:text-[--font-color] 
                   transition-all hover:bg-gray-600/10 rounded duration-200 hover:px-3 hover:py-1
-                  ${path === '/contact' ? 'underline' : ''}`}  
+                  ${path === "/contact" ? "underline" : ""}`}
               >
                 Contact Us
               </Link>
@@ -129,16 +130,31 @@ const Navbar = () => {
             className=" flex flex-col items-end gap-5 pr-2 text-[--font-color] pb-4"
             onClick={() => setIsOpen(false)}
           >
-            <Link href="/" className={` hover:text-[--font-color] ${path === '/' ? 'underline' : ''}`}  >
+            <Link
+              href="/"
+              className={` hover:text-[--font-color] ${
+                path === "/" ? "underline" : ""
+              }`}
+            >
               Home
             </Link>
-            <Link href="/services" className={` hover:text-[--font-color] ${path === 'services' ? 'underline' : ''}`}>
-             Our Services
+            <Link
+              href="/services"
+              className={` hover:text-[--font-color] ${
+                path === "services" ? "underline" : ""
+              }`}
+            >
+              Our Services
             </Link>
             {/* <Link href="/about" className="  hover:text-[--font-color]  ">
               About
             </Link> */}
-            <Link href="/contact" className={` hover:text-[--font-color] ${path === 'contact' ? 'underline' : ''}`}>
+            <Link
+              href="/contact"
+              className={` hover:text-[--font-color] ${
+                path === "contact" ? "underline" : ""
+              }`}
+            >
               Contact Us
             </Link>
           </div>
