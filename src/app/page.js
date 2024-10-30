@@ -9,7 +9,7 @@ import Services from "@/components/Services";
 
 export default function Home() {
   return (
-    <main className="flex flex-col gap-16">
+    <main className="flex flex-col md:gap-16 gap-8">
       <Hero />
       <About />
       <Line />

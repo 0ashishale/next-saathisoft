@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import Link from "next/link";
 import { MdOutlineDesignServices } from "react-icons/md";
@@ -9,15 +9,17 @@ import { MdOutlineContentPaste } from "react-icons/md";
 import { RiMenuSearchLine } from "react-icons/ri";
 import { IoShareSocialOutline } from "react-icons/io5";
 import { CiMobile2 } from "react-icons/ci";
+import { IoIosTrendingUp } from "react-icons/io";
+
+import Image from "next/image";
 
 const Services = () => {
-
   return (
     <>
-      <section className="md:w-[90%] w-[90%] mx-auto bg-slate-500m p-6">
+      <section className="md:w-[--width-lg] w-[--width-sm] mx-auto bg-slate-500m p-[--p-container]">
         <div className=" text-[--font-color]">
           <h1 className="smallHeading">Our Services</h1>
-          <p className="mt-2 heading gradient">
+          <p className="mt-3 heading gradient">
             Where your every digital need finds its perfect solution, all in one
             place.
           </p>
@@ -37,7 +39,7 @@ const Services = () => {
           />
           <ServicesCard
             icon={
-              <GoDeviceCameraVideo size={40} className="text-[--font-color]"/>
+              <GoDeviceCameraVideo size={40} className="text-[--font-color]" />
             }
             title={`Video Creation`}
             description={`Video marketing involves using compelling video content to promote, educate, or engage with an audience, aiming to increase brand awareness, drive traffic, and achieve specific marketing goals.`}
@@ -96,51 +98,45 @@ const Services = () => {
       </section>
     </>
   );
-}
+};
 
-
-
-
-export default Services
-
-
+export default Services;
 
 const ServicesCard = ({ icon, title, description }) => {
-
   return (
     <>
-      <div className=" w-fit rounded-md bg-transparent border border-[--ancient-gold60] hover:border-[--ancient-gold] p-[2px] transition-all duration-300" >
-        <div className="group p-5 md:flex gap-10 h-full w-full">
+      <div className=" w-fit rounded-md bg-transparent border border-[--ancient-gold60] hover:border-[--ancient-gold] p-[2px] transition-all duration-300">
+        <div className="group p-5 flex flex-col md:flex-row justify-center md:gap-10  h-full w-full">
           <div className="flex justify-center mb-5 md:mt-0">
-
-            <span className="flex justify-center items-center border border-[--ancient-gold40] group-hover:bg-yellow-500/30 transition-color duration-500  p-3 rounded-full aspect-square
+            <span
+              className="flex justify-center items-center border border-[--ancient-gold] group-hover:bg-yellow-500/30 transition-color duration-500  p-3 rounded-full aspect-square
            h-[6rem]
-          ">
-            {icon}
-          </span>
-        
-          </div>
-          <div className="flex flex-col justify-between gap-5 ">
-            <div className="flex flex-col gap-5">
-            <h1 className="text-xl tracking-wide font-bold text-[--font-color]">{title}</h1>
-            <p className="text-[16px] text-[--font-color70] font-light tracking-wide">
-              {description}
-            </p>
-            </div>
-            <span className="mt-5 ">
-              <Link
-                href={"/services"}
-                className="text-2xl border border-[--ancient-gold60] px-6 flex w-fit items-center justify-center rounded hover:bg-[--font-color]
-                duration-500  group-hover:translate-x-10 group-hover:border-[--ancient-gold] ease-out text-[--font-color]
-                "
-              >
-                &rarr;
-              </Link>
+          "
+            >
+              {icon}
             </span>
+          </div>
+          <div className="flex flex-col justify-between  gap-5 ">
+            <div className="flex flex-col gap-5">
+              <h1 className="text-xl tracking-wide font-bold text-[--font-color] text-center md:text-left">
+                {title}
+              </h1>
+              <p className="text-[16px] text-[--font-color70] font-light tracking-wide text-center md:text-left">
+                {description}
+              </p>
+            </div>
+
+            <Link
+              href={"/services"}
+              className="text-2xl border border-[--ancient-gold40] px-6 py-1 flex md:w-fit items-center justify-center rounded hover:bg-[--font-color]
+                duration-500  md:group-hover:translate-x-10 group-hover:border-[--ancient-gold] ease-out text-[--font-color] active:bg-blue-600/20 focus-within:bg-blue-600/20
+                "
+            >
+              <IoIosTrendingUp />
+            </Link>
           </div>
         </div>
       </div>
-
     </>
-  )
-}
+  );
+};

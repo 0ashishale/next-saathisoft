@@ -6,17 +6,80 @@
 
 
 :root {
+
+
+/*colors */
+--neutral90 : #272728; /*primary text*/
+--neutral80 : #3e3e40; /*Icons, text on label button*/
+--neutral70 : #575758; /*secondary text*/
+--neutral50 : #868687; /*tab bar/inactive icons & text*/
+--neutral30 : #b7b7b8; /*disabled text, disabled icons*/
+--neutral20 : #cfcfcf; /*divider on secondary surface, outline pressed element*/
+--neutral10 : #e7e7e8; /*secondary surface, divs on primary surface*/
+--neutral00 : #fff  ; /*white, primary surface*/
+
+
+--primary-color: hsl(210, 60%, 50%); /* Base color */
+
+--primary-color20: hsla(var(--primary-color), 0.2);
+/* Lighter Shades */
+--primary-color-tint-1:   hsl(210, 60%, 30%); /* 10% lighter */
+--primary-color-tint-2: hsl(210, 60%, 70%); /* 20% lighter */
+--primary-color-tint-3: hsl(210, 60%, 80%); /* 30% lighter */
+
+/* Darker Shades */
+--primary-color-shade-1: hsl(210, 60%, 40%); /* 10% darker */
+--primary-color-shade-2: hsl(210, 60%, 30%); /* 20% darker */
+--primary-color-shade-3: hsl(210, 60%, 20%); /* 30% darker */
+
+
+
+  /* Base ancient green color */
+  --ancient-green: hsl(91, 89%, 36%); /* #27a50a */
+
+  /* Tints (lighter) */
+  --ancient-green-tint-1: hsl(91, 89%, 46%); /* 10% lighter */
+  --ancient-green-tint-2: hsl(91, 89%, 56%); /* 20% lighter */
+  --ancient-green-tint-3: hsl(91, 89%, 66%); /* 30% lighter */
+
+  /* Shades (darker) */
+  --ancient-green-shade-1: hsl(91, 89%, 26%); /* 10% darker */
+  --ancient-green-shade-2: hsl(91, 89%, 16%); /* 20% darker */
+  --ancient-green-shade-3: hsl(91, 89%, 6%);  /* 30% darker */
+
+
+
+
+/*layout */
+
+--width-lg : 85%;
+--width-sm : 95%;
+--width-max : 1920px;
+--p-container : 1rem;
+
+--shadow : var(--primary-color-tint-1);
+
+
+
+/*gap */
+
+--small-gap: 1em;
+--large-gap: 2em;
+--extra-large-gap: 3em;
+
+
+
+
+
   --foreground-rgb: 255, 125, 7;
   --ancient-gold1000: #ff7d07;
   --backgroundColor: #031e3b;
   --font-color-end: #ffe601;
-  --ancient-gold : #ffe601;
+  --ancient-gold : #ebeb10;
   --ancient-gold25 : rgba(255, 230, 1, .25);
   --ancient-gold40 : rgba(255, 230, 1, .4);
   --ancient-gold60 : rgba(255, 230, 1, .6);
-
-
-
+ 
 
   --ancient-blue :  #190059;
   --ancient-blue25 :  rgba(2, 1, 56, .25);
@@ -30,12 +93,13 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    /* --foreground-color : rgb(255, 255, 255); */
-    --background-start-color: var(--ancient-blue);
-    --background-end-color : #211e00; 
+    --background-start-color: var(--primary-color-shade-3);
+    --background-end-color : var(--ancient-green-shade-3); 
     --font-color : #f2f2f2;
     --font-color70 : rgba(255,255,255, .7);
-    --font-color90:  rgba(255,255,255, .9);
+    --font-color80:  rgba(255,255,255, .8);
+    --shadow : var(--primary-color-tint-1)
+    
 
 
   }
@@ -43,11 +107,14 @@
 
 @media (prefers-color-scheme: light) {
   :root {
-    --foreground-color : rgb(255, 255, 255);
+    --foreground-color : var(--neutral20);
     --background-start-color: rgb(255, 255, 255);
     --background-end-color : rgb(255, 255, 255); 
     --font-color : #1c1c1c;
     --font-color80 : rgba(0,0,0, .8);
+    --shadow: rgba(0,0,0, .2)
+    
+
 
 
 
@@ -60,17 +127,17 @@ html {
 }
 
 .smallHeading{
- @apply tracking-wider font-semibold uppercase text-sm text-[--font-color70]
+ @apply tracking-wider font-medium uppercase text-xs text-[--font-color70]
 }
 
 .heading {
-  @apply text-2xl tracking-wide mb-3 font-bold ;
+  @apply text-2xl tracking-wide font-semibold mt-1 ;
 }
 
 
 
 .paragraph {
-  @apply text-[--font-color90] tracking-wide;
+  @apply text-[--font-color80] tracking-wide;
 }
 
 .gradient {

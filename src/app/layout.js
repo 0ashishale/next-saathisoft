@@ -57,7 +57,7 @@ export default function RootLayout({ children }) {
       </head>
       <body
         className={`${inter.className} 
-         bg-gradient-to-l from-[var(--background-start-color)] to-[var(--background-end-color)] box-border max-w-[1980px] mx-auto `}
+         bg-gradient-to-b from-[var(--background-start-color)] to-[var(--background-end-color)] box-border max-w-[1980px] mx-auto `}
       >
         <header className="w-full sticky top-0 z-[1000]">
           <Navbar />

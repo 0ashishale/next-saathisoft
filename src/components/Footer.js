@@ -9,6 +9,8 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { TwitterX } from './icons';
+import { GrLinkTop } from "react-icons/gr";
+
 
 const Footer = () => {
   const year = new Date().getFullYear();
@@ -34,22 +36,22 @@ const Footer = () => {
   return (
     <>
       <section>
-        <div className='FadeIn md:w-[90%] w-[90%] mx-auto p-6  h-fit flex md:flex-row flex-col gap-10'>
-          <div className='flex flex-col'>
-            <h1 className='smallHeading'>Quick Links</h1>
-            <div className='flex flex-col gap-1 mt-2 ml-1 text-[--font-color]'>
-              <Link href='/'>
-                <span className=' hover:text-[--ancient-gold] duration-300 '>
+        <div className="FadeIn md:w-[--width-lg] w-[--width-sm] mx-auto p-[--p-container]  h-fit flex md:flex-row flex-col gap-10">
+          <div className="flex flex-col">
+            <h1 className="smallHeading">Quick Links</h1>
+            <div className="flex flex-col gap-1 mt-3 ml-1 text-[--font-color]">
+              <Link href="/">
+                <span className=" hover:text-[--ancient-gold] duration-300 ">
                   &#10919;&nbsp; Home
                 </span>
               </Link>
-              <Link href='/services'>
-                <span className=' hover:text-[--ancient-gold] duration-300'>
+              <Link href="/services">
+                <span className=" hover:text-[--ancient-gold] duration-300">
                   &#10919;&nbsp; Our Services
                 </span>
               </Link>
-              <Link href='/contact'>
-                <span className=' hover:text-[--ancient-gold] duration-300'>
+              <Link href="/contact">
+                <span className=" hover:text-[--ancient-gold] duration-300">
                   &#10919;&nbsp; Contact Us
                 </span>
               </Link>
@@ -57,11 +59,10 @@ const Footer = () => {
           </div>
 
           <div className="flex flex-col flex-1 items-center  gap-5">
-            
-          <Link href="/">
-                <Image
-                  width={250}
-                  height={200}
+            <Link href="/">
+              <Image
+                width={250}
+                height={200}
                 src="/Image/logo.png"
                 alt="SAATHisoft"
                 className="h-auto w-auto hover:opacity-80 duration-200 move overflow-hidden"
@@ -104,26 +105,22 @@ const Footer = () => {
                 </a>
               </div>
             </div>
-     
           </div>
-        
-          <p className='md:self-end text-sm text-[--font-color70]'>
-          &copy; <a href='/'>SAATHisoft</a> {year}. All rights reserved.
-        </p>
+
+          <p className="md:self-end text-sm text-[--font-color70]">
+            &copy; <a href="/">SAATHisoft</a> {year}. All rights reserved.
+          </p>
         </div>
 
-    
-      <div
-        onClick={handleClick}
-        className={`${
-          scrollHeight > 600 ? 'visibble' : 'invisible'
-        } fixed bottom-5 right-5  bg-gray-700 bg-opacity-50 transition-colors cursor-pointer  h-10 w-10 rounded-full flex justify-center items-center border border-[--ancient-gold] text-[--font-color] hover:text-[--ancient-gold]`}
-      >
-        <span className='text-2xl relative top-1'>&#10514;</span>
-      </div>
+        <div
+          onClick={handleClick}
+          className={`${
+            scrollHeight > 600 ? "visibble" : "invisible"
+          } fixed bottom-5 right-5  bg-gray-700 bg-opacity-50 transition-colors cursor-pointer  h-10 w-10 rounded-full flex justify-center items-center border border-[--ancient-gold] text-[--font-color] hover:text-[--ancient-gold]`}
+        >
+          <span ><GrLinkTop /></span>
+        </div>
       </section>
-
-  
     </>
   );
 };

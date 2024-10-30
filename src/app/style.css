@@ -1,9 +1,17 @@
+/* navbar */
+
+
 
 
 /* hero section */
 
 .heroIcon {
-    @apply p-2 bg-black/60 hover:bg-[--ancient-gold] hover:text-black transition-all duration-300 rounded-full shadow-md shadow-white text-white
+    @apply p-2 bg-[--ancient-gold] transition-all duration-300 rounded-full text-black
+  }
+
+  .heroIcon:hover, 
+  .heroIcon:focus{
+    @apply bg-[--primary-color] shadow-md shadow-[--primary-color-tint-2]
   }
 
 
@@ -12,11 +20,15 @@
   /* about section */
   
   .aboutCard{
-    @apply flex flex-col gap-5 items-center justify-between border border-[--ancient-gold40] hover:border-[--ancient-gold] transition-all duration-500 p-4 rounded-md 
+    @apply flex flex-col p-5 gap-5 w-full md:w-fit items-center justify-between border border-[--primary-color] hover:border-[--ancient-gold] transition-all duration-500 rounded-md shadow-md hover:shadow-lg shadow-[--shadow] bg-gradient-to-br  from-blue-400/80 dark:from-blue-400/20  to-[--ancient-gold] dark:to-transparent
+
   }
 
+  .aboutCard .icon{
+    @apply h-[6rem] hover:bg-[--ancient-gold25] focus:bg-[--ancient-gold25] aspect-square rounded-full flex justify-center items-center border border-[--primary-color] text-[--primary-color]
+  }
   .aboutCard h1 {
-        @apply  w-[14rem] bg-gradient-to-r text-center from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text
+        @apply   text-center inline-block dark:text-white  text-xl font-semibold w-[200px] tracking-wide
   }
 
   /* about section end */
@@ -51,6 +63,7 @@
     @apply p-2 w-full border border-gray-300 rounded-md bg-transparent outline-none text-sm
   }
 
+  
 
 
 

@@ -13,12 +13,16 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isBg, setIsBg] = useState(false)
 
-
-
-
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
+
+
+
+  
+
+
 
 
   useEffect(() => {
@@ -30,7 +34,6 @@ const Navbar = () => {
       }
   
     }
-    
     window.addEventListener('scroll', handleScroll)
 
     return () => {
@@ -49,7 +52,7 @@ const Navbar = () => {
           : "transition-color duration-500  "
       }`}
     >
-      <div className="md:w-[90%] w-[90%] mx-auto">
+      <div className="md:w-[90%] w-[95%] mx-auto">
         <div className="flex items-center justify-between">
           <Link href="/">
             <Image
@@ -121,9 +124,9 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-        <div className={`md:hidden ${isOpen ? "block" : "hidden"}`}>
+        <div className={`md:hidden ${isOpen ? "block anime" : "hidden"}`}>
           <div
-            className=" flex flex-col items-end gap-2 pr-2 text-[--font-color] pb-4"
+            className=" flex flex-col items-end gap-5 pr-2 text-[--font-color] pb-4"
             onClick={() => setIsOpen(false)}
           >
             <Link href="/" className={` hover:text-[--font-color] ${path === '/' ? 'underline' : ''}`}  >

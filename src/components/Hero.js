@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap/gsap-core';
-import { Facebook, Instagram, LinkedIn, TwitterX } from './icons';
+import { Facebook, Instagram, LinkedIn, Location, TwitterX } from './icons';
 
 const Hero = () => {
   const heroTHeading = useRef(null);
@@ -30,23 +30,25 @@ const Hero = () => {
       flex
     "
     >
-      <div className=' w-full flex items-center bg-black/15'>
+      <div className=' w-full flex items-center bg-gradient-to-r from-[--ancient-green-shade-3] to-transparent'>
         <div
          
-          className='md:w-[90%] w-[95%] mx-auto  '
+          className='md:w-[--width-lg] w-[--width-sm] p-[--p-container] mx-auto  '
         >
           <div
-            style={{ borderRadius: '28% 72% 84% 16% / 47% 80% 20% 53%' }}
-            className='bg-[--ancient-blue60] p-20 pl-10 w-fit flex flex-col gap-8'
+            // style={{ borderRadius: '28% 72% 84% 16% / 47% 80% 20% 53%' }}
+            className='bg-[--primary-color-shade-3]3 bg-opacity-20  w-fit flex flex-col gap-5 shadow-inner shadow-[--primary-color-tint-3]3'
           >
             <div  ref={heroTHeading}>
-              <h1 className='md:text-6xl text-5xl tracking-wide font-extrabold text-[var(--ancient-gold)]'>
+              <h1 className='md:text-6xl text-4xl tracking-wide font-extrabold text-[var(--ancient-gold)]'>
                 Shine <br /> Everywhere!!
               </h1>
-              <p className='text-xl mt-3 font-semibold text-white tracking-wide'>
-                Let&apos;s make your digital presence shine!{' '}
+              <p className='text-lg mt-3 font-medium text-white tracking-wide'>
+                Let&apos;s make your digital presence shine together.{' '}
               </p>
+             
             </div>
+            <p className='text-white tracking-wide flex gap-1 items-center text-[--ancient-gold] text-base'>  <Location size={18} />Pokhara, Nepal</p>
 
             <div className='text-[--font-color] flex gap-4'>
               <a href='' className='heroIcon'><LinkedIn size={20}  /></a>

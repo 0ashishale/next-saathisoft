@@ -73,58 +73,53 @@ const Partners = () => {
   }, []);
   return (
     <>
-      <section className='md:w-[90%] w-[90%] mx-auto p-6 flex flex-col gap-8'>
-        <div className='FadeIn flex items-center flex-col md:flex-row'>
-          <div className='py-5 h-28 w-full '>
-            <h5 className='gradient  tracking-wider font-semibold mb-3'>
-              LET&apos;S CONNECT
-            </h5>
+      <section className="md:w-[--width-lg] w-[--width-sm] mx-auto p-[--p-container] flex flex-col gap-8">
+        <div className="FadeIn flex items-center flex-col md:flex-row">
+          <div className="w-full ">
+            <h5 className="smallHeading mb-3">LET&apos;S CONNECT</h5>
             <div>
-              <h1 className='md:text-5xl text-3xl  font-bold  text-[--font-color] tracking-wide '>
-                <span className=''>
-                  LET YOUR{' '}
+              <h1 className="md:text-5xl text-3xl  font-bold  text-[--font-color] tracking-wide ">
+                <span className="">
+                  LET YOUR{" "}
                   <span
                     ref={visionRef}
-                    className='stroke relative overflow-hidden'
+                    className="stroke relative overflow-hidden"
                   >
                     VISION
                   </span>
-                </span>{' '}
-                BE OUR{' '}
+                </span>{" "}
+                BE OUR{" "}
                 <span
                   ref={missionRef}
-                  className='stroke relative overflow-hidden'
+                  className="stroke relative overflow-hidden"
                 >
                   MISSION.
-                </span>{' '}
+                </span>{" "}
               </h1>
             </div>
           </div>
         </div>
 
-
-        <div className=''>
-          <h5 className='gradient text-sm tracking-wider font-semibold'>
+        <div className="">
+          <h5 className="gradient text-sm text-center tracking-wider font-semibold">
             OUR DIGITAL PARTNERS
           </h5>
-          {/* <h1 className='text-3xl font-semibold tracking-widest text-center'>
-            Explore our accomplished projects
-          </h1> */}
-          <div className='flex flex-wrap gap-10 items-center mt-3'>
+        
+          <div className="flex flex-wrap md:gap-10 gap-4 items-center justify-center mt-6">
             <Card
               name={`Aiwa Education`}
               url={`www.aiwa.edu.np/`}
-              logo={'/Image/aiwa.png'}
+              logo={"/Image/aiwa.png"}
             />
             <Card
               name={`Neat Dental Care`}
               url={`www.neatdentalcare.com.np/`}
-              logo={'/Image/neatdental.png'}
+              logo={"/Image/neatdental.png"}
             />
             <Card
               name={`Sunaulo Baglung`}
               url={``}
-              logo={'/Image/sunaulo.png'}
+              logo={"/Image/sunaulo.png"}
             />
           </div>
         </div>
@@ -136,10 +131,10 @@ const Partners = () => {
 const Card = ({ logo, url, name }) => {
   return (
     <>
-      <div className='flip-card  h-[12.5rem] w-[12.5rem] cursor-pointer'>
+      <div className='flip-card  h-[14rem]  w-[16rem] cursor-pointer'>
         <div className='flip-card-inner'>
           <div className='flip-card-front border border-[--ancient-gold60] rounded'>
-            <Image width={300} height={300} src={logo} alt='Neat Dental Care' />
+            <Image width={200} height={200} src={logo} alt='Neat Dental Care' className='max-h-[200px] max-w-[200px] w-auto h-auto'/>
           </div>
           <div className='flip-card-back border border-[--ancient-gold60] rounded'>
             <a
