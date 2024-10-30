@@ -100,16 +100,19 @@ const About = () => {
             <h3 ref={headRef} className="heading gradient ">
               SAATHisoft - Where Digital Dreams Take Flight!
             </h3>
-            <p ref={pRef} className="paragraph">
+            <p
+              // ref={pRef}
+              className="paragraph"
+            >
               We love turning your digital dreams into reality with creativity
               and the latest technology.
               <br />
               We combine our skills with a deep understanding of your brand to
               deliver outstanding results. <br />
               Our talented team is committed to creating unique solutions that
-              adapt to the ever-changing digital world. Whether it's web/mobile
-              development, design, digital marketing or branding with SEO
-              optimization.
+              adapt to the ever-changing digital world. Whether it&apos;s
+              web/mobile development, design, digital marketing or branding with
+              SEO optimization.
             </p>
           </div>
 
