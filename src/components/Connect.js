@@ -114,7 +114,7 @@ useEffect(() => {
 
   return (
     <>
-      <section className="FadeIn flex items-center flex-col md:flex-row p-[--p-container]">
+      <section className="FadeIn flex items-center flex-col md:flex-row py-[--p-container]">
         <div className="py-5 h-28 w-full ">
           <h5 className="gradient  tracking-wider font-semibold mb-3">
             LET&apos;S CONNECT

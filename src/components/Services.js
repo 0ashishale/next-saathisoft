@@ -12,7 +12,7 @@ import { IoIosTrendingUp } from "react-icons/io";
 const Services = () => {
   return (
     <>
-      <section className="md:w-[--width-lg] w-[--width-sm] mx-auto bg-slate-500m p-[--p-container]">
+      <section className="md:w-[--width-lg] w-[--width-sm] mx-auto bg-slate-500m py-[--p-container]">
         <div className=" text-[--font-color]">
           <h1 className="smallHeading">Our Services</h1>
           <p className="mt-3 heading gradient">
@@ -21,7 +21,7 @@ const Services = () => {
           </p>
         </div>
 
-        <div className="servicesContainer mt-8 ">
+        <div className="servicesContainer mt-12 ">
           <ServicesCard
             icon={
               <MdOutlineDesignServices

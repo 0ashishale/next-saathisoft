@@ -55,7 +55,7 @@
 --width-lg : 85%;
 --width-sm : 95%;
 --width-max : 1920px;
---p-container : 1rem;
+--p-container : 3rem;
 
 --shadow : var(--primary-color-tint-1);
 

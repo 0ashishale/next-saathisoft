@@ -6,6 +6,14 @@ import Image from "next/image";
 
 import gsap from "gsap";
 import { usePathname } from "next/navigation";
+import NavTab from "./ui/NavTab";
+
+const navTabs = [
+  { name: "Home", path: "/" },
+  { name: "Our Services", path: "/services" },
+  { name: "About Us", path: "/about" },
+  { name: "Contact Us", path: "/contact" },
+];
 
 const Navbar = () => {
   const path = usePathname();
@@ -80,39 +88,10 @@ const Navbar = () => {
           </div>
           <div className={`hidden md:block ${isOpen ? "block" : "hidden"}`}>
             <div className="relative flex flex-row items-baseline space-x-4 text-sm tracking-wide text-[--font-color]">
-              <Link
-                href="/"
-                className={`hover:text-[--font-color]
-                transition-all  rounded duration-200  hover:underline
-                ${path === "/" ? "underline" : ""}`}
-              >
-                Home
-              </Link>
-
-              <Link
-                href="/services"
-                className={`hover:text-[--font-color]
-                transition-all  rounded duration-200  hover:underline
-                ${path === "/services" ? "underline" : ""}`}
-              >
-                Our Services
-              </Link>
-              <Link
-                href="/about"
-                className={`hover:text-[--font-color]
-                transition-all  rounded duration-200  hover:underline
-                ${path === "/about" ? "underline" : ""}`}
-              >
-                About Us
-              </Link>
-              <Link
-                href="/contact"
-                className={`bg-[--ancient-gold] hover:shadow-md dark:hover:shadow-white/40 hover:shadow-black/30 py-1 px-3 text-black 
-                  hover:underline rounded   
-                  ${path === "/contact" ? "underline" : ""}`}
-              >
-                Contact Us
-              </Link>
+             
+              {navTabs.map((tab) => (
+                <NavTab name={tab.name} path={tab.path} key={tab.path} />
+              ))}
             </div>
           </div>
         </div>

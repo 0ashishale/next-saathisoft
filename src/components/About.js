@@ -59,8 +59,8 @@ const About = () => {
   }, []);
 
   return (
-    <section className="FadeIn md:w-[--width-lg] w-[--width-sm] mx-auto p-[--p-container] bg-slate-500m">
-      <div className="grid md:grid-cols-2 gap-10">
+    <section className="FadeIn md:w-[--width-lg] w-[--width-sm] mx-auto py-[--p-container] bg-slate-500m">
+      <div className="grid md:grid-cols-2 gap-10 mt-3">
         <div className="flex flex-col gap-2">
           <h1 ref={h1Ref} className="smallHeading">
             About us
@@ -96,14 +96,14 @@ const About = () => {
         </div>
       </div>
 
-      <div className="mt-10 flex flex-col gap-2">
+      <div className="mt-20 flex flex-col gap-2">
         <div className="flex flex-col">
           <h1 className="text-[--font-color70]">Why choose us?</h1>
           <p className="text-lg text-[--font-color80] font-semibold pl-2">
             We are the bricks to build your dreams.
           </p>
         </div>
-        <div className="flex flex-wrap justify-center p-4 md:gap-6 gap-8">
+        <div className="flex flex-wrap justify-center mt-2 p-4 md:gap-6 gap-8">
           <div className="aboutCard">
             <span className="icon">
               <GiArmorUpgrade size={40} />

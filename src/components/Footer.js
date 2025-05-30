@@ -36,7 +36,7 @@ const Footer = () => {
   return (
     <>
       <section>
-        <div className="FadeIn md:w-[--width-lg] w-[--width-sm] mx-auto p-[--p-container]  h-fit flex md:flex-row flex-col gap-10">
+        <div className="FadeIn md:w-[--width-lg] w-[--width-sm] mx-auto py-[--p-container]  h-fit flex md:flex-row flex-col gap-10">
           <div className="flex flex-col">
             <h1 className="smallHeading">Quick Links</h1>
             <div className="flex flex-col gap-1 mt-3 text-[--font-color] text-sm  tracking-wider font-thin underline">

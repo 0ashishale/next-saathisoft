@@ -150,7 +150,7 @@ const Contact = () => {
 
   return (
     <>
-      <section className="FadeIn md:w-[--width-lg] w-[--width-sm] mx-auto p-[--p-container] flex md:flex-row flex-col gap-10 justify-between">
+      <section className="FadeIn md:w-[--width-lg] w-[--width-sm] mx-auto py-[--p-container] flex md:flex-row flex-col gap-10 justify-between">
         <div className="lg:mr-5 h-full">
           <h1 className="smallHeading">Contact Us</h1>
           <p

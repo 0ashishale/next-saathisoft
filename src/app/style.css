@@ -6,12 +6,12 @@
 /* hero section */
 
 .heroIcon {
-    @apply p-2 bg-[--ancient-gold] transition-all duration-300 rounded-full text-black
+    @apply p-2 bg-transparent  border border-[--ancient-gold] transition-all duration-300 rounded-full text-white
   }
 
   .heroIcon:hover, 
   .heroIcon:focus{
-    @apply bg-[--primary-color] shadow-md shadow-[--primary-color-tint-2]
+    @apply bg-[--ancient-gold25] shadow-md shadow-[--primary-color-tint-2]
   }
 
 

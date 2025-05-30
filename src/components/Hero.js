@@ -25,7 +25,7 @@ const Hero = () => {
   return (
     <section
       className="
-       md:min-h-[80svh] min-h-[50svh] w-[100%]  mx-auto
+       md:min-h-[90svh] min-h-[90svh] w-[100%]  mx-auto
        bg-[url('/Image/home.png')] bg-contain bg-no-repeat bg-right-bottom 
       flex
     "
@@ -33,25 +33,25 @@ const Hero = () => {
       <div className=' w-full flex items-center bg-gradient-to-r from-[--ancient-green-shade-3] to-transparent'>
         <div
          
-          className='md:w-[--width-lg] w-[--width-sm] p-[--p-container] mx-auto  '
+          className='md:w-[--width-lg] w-[--width-sm] py-[--p-container] mx-auto  '
         >
           <div
             // style={{ borderRadius: '28% 72% 84% 16% / 47% 80% 20% 53%' }}
             className='bg-[--primary-color-shade-3]3 bg-opacity-20  w-fit flex flex-col gap-5 shadow-inner shadow-[--primary-color-tint-3]3'
           >
             <div  ref={heroTHeading}>
-              <h1 className='md:text-6xl text-4xl tracking-wide font-extrabold text-[var(--ancient-gold)]'>
+              <h1 className='md:text-6xl text-4xl border-b-2 pb-3 border-b-[--ancient-gold] tracking-wide font-extrabold text-[var(--ancient-gold)]'>
                 Shine <br /> Everywhere!!
               </h1>
-              <p className='text-lg mt-3 font-medium text-white tracking-wide'>
+              <p className='text-lg mt-8 font-medium text-white tracking-wide'>
                 Let&apos;s make your digital presence shine together.{' '}
               </p>
              
             </div>
             <p className='text-white tracking-wide flex gap-1 items-center text-[--ancient-gold] text-base'>  <Location size={18} />Pokhara, Nepal</p>
 
-            <div className='text-[--font-color] flex gap-4'>
-              <a href='' className='heroIcon'><LinkedIn size={20}  /></a>
+            <div className='text-[--font-color] flex gap-10 mt-5'>
+              <a href='' className='heroIcon'><LinkedIn  size={20}  /></a>
               <a href='' className='heroIcon'><Facebook size={20}  /></a>
               <a href='' className='heroIcon'><TwitterX size={20}/></a>
               <a href='' className='heroIcon'><Instagram size={20}  /></a>
